@@ -37,8 +37,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
+
 
 import com.gurock.testrail.APIClient;
 
@@ -143,7 +142,7 @@ public class OrderPayDelivery {
 		
 		data = new HashMap();
 		try{
-			Screen screen = new Screen();
+			
 						
 			WebElement payment_item=driver.findElement(By.xpath("//input[@value='CREDIT_CARD']"));
 			//Pattern payment_card = new Pattern("D:/hanzisu/NaverPayNotification/image/payment_card.jpg");
@@ -218,7 +217,7 @@ public class OrderPayDelivery {
 	    // Write code here that turns the phrase above into concrete actions
 		data = new HashMap();
 		try{
-			Screen screen = new Screen();
+			
 						
 			WebElement payment_item=driver.findElement(By.xpath("//input[@value='BANK']"));
 								
@@ -274,7 +273,7 @@ public class OrderPayDelivery {
 	    // Write code here that turns the phrase above into concrete actions
 		data = new HashMap();
 		try{
-			Screen screen = new Screen();
+			
 						
 			WebElement payment_item=driver.findElement(By.xpath("//input[@value='MOBILE']"));
 								
@@ -358,7 +357,7 @@ public class OrderPayDelivery {
 	    // Write code here that turns the phrase above into concrete actions
 		data = new HashMap();
 		try{
-			Screen screen = new Screen();
+		
 						
 			WebElement payment_item=driver.findElement(By.xpath("//input[@value='MOBILE']"));
 								
@@ -445,7 +444,7 @@ public class OrderPayDelivery {
 		data = new HashMap();
 		try{
 			//무통장입금 선택
-			Screen screen = new Screen();
+		
 			WebElement payment_item=driver.findElement(By.xpath("//input[@value='VIRTUAL_ACCOUNT']"));
 			//Pattern payment_virtual = new Pattern("D:/hanzisu/NaverPayNotification/image/payment_virtual.jpg");
 			if(!payment_item.isSelected()){
