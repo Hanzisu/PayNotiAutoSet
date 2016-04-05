@@ -1,4 +1,5 @@
 package com.cucumber.selenium.NaverPayNotification;
+
 import static org.junit.Assert.assertTrue;
 
 import com.gurock.testrail.APIClient;
