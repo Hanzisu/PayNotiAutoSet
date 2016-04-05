@@ -43,7 +43,7 @@ public class Setting {
 	 private static JSONObject r;
 	 private static String testId = "154939";
 	 private static String currentWindowId;
-
+	 org.json.simple.JSONObject jsonObject = null; 
 	@Before("@tagToSetting")
 	public static void setUp(){
 		IEDRIVER_FILE_PATH = "D:/hanzisu/TestPayAutomaion/driver/IEDriverServer.exe";
@@ -87,7 +87,7 @@ public class Setting {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 베타 설정 페이지에 접근한다");
-		r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		}
 		
 	}
@@ -105,7 +105,7 @@ public class Setting {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 비밀번호 변경 버튼 클릭한다");
-		r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		}
 		
 	}
@@ -209,7 +209,7 @@ public class Setting {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 네이버페이 비밀번호 입력창인지 확인한 후 비밀번호를 입력한다");
-		r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		}
 		
 			
@@ -228,13 +228,13 @@ public class Setting {
 		System.out.println(driver.findElement(By.partialLinkText(text)).getText());
 		data.put("status_id", new Integer(1));
 		data.put("comment",driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		//driver.close();
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 네이버페이 비밀번호 변경' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		

@@ -66,6 +66,7 @@ public class OrderPayDelivery {
 	 private static Map data;
 	 private static String testId = "238236";
 	 private static int delivery_num=456789123;
+	 org.json.simple.JSONObject jsonObject = null; 
 
 	 @Before("@tagToOrderandDelivery")
 	 public static void setUp(){
@@ -131,7 +132,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 알파 주문서에 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 	}
@@ -171,7 +172,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 결제정보에 일반결제 > 신용카드를 선택한 후 결제한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject) client.sendPost("add_result/" + testId, data);
 					
 		}
 	}
@@ -197,13 +198,13 @@ public class OrderPayDelivery {
 		//try{data.put("comment", image);}catch(Exception e){System.out.println("이미지 put 실패");}
 		
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '결제완료-일반결제-신용카드' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "238239";
@@ -234,7 +235,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 결제정보에 일반결제 > 실시간계좌이체를 선택한 후 결제한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 	}
@@ -257,13 +258,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '결제완료-일반결제-실시간계좌이체' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "238242";
@@ -317,7 +318,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 결제정보에 일반결제 > 휴대폰 일반결제를 선택한 후 결제한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 	}
@@ -341,13 +342,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '결제완료-일반결제-휴대폰 일반결제' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "238245";
@@ -402,7 +403,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 결제정보에 일반결제 > 휴대폰 간편결제를 선택한 후 결제한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 	}
@@ -426,13 +427,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '결제완료-일반결제-휴대폰 간편결제' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "154892";
@@ -476,7 +477,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 결제정보에 일반결제 > 무통장입금을 선택한 후 결제한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -497,13 +498,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 주문 완료 후 me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "154893";
@@ -525,7 +526,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 무통장입금 주문상세 페이지에 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		//driver.get("https://alpha-order.pay.naver.com/orderStatus/"+number);
@@ -579,7 +580,7 @@ public class OrderPayDelivery {
 			catch(Exception e){
 			data.put("status_id", new Integer(5));
 			data.put("comment", "Fail => step : 무통장입금 은행 변경 버튼 클릭한 후 변경할 은행 선택 후 확인 클릭한다");
-			JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+			JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 						
 			}	
 		
@@ -601,13 +602,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		driver.close();
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 주문 완료 후 '무통장입금 은행 변경' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "154882";
@@ -654,7 +655,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 알파 스토어팜 판매자센터 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -683,7 +684,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 상품주문번호 입력하여 검색 후 해당 내역 선택한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -747,7 +748,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 발송지연 안내 버튼 클릭한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -773,13 +774,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		driver.close();
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '배송지연' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "154881";
@@ -835,7 +836,7 @@ public class OrderPayDelivery {
 			}
 			data.put("status_id", new Integer(1));
 			data.put("comment", "success => step : 택배 발송 처리 성공");
-			JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+			JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 			//System.out.println(allWindows.);
 		/*	if(!allWindows.isEmpty()){
 				for (String windowId : allWindows){
@@ -872,7 +873,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 상품주문번호 입력하여 검색 후 해당 내역 선택한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		System.out.println("catch로 넘어가나?");		
 		}
 	}
@@ -885,13 +886,13 @@ public class OrderPayDelivery {
 			
 		data.put("status_id", new Integer(2));
 		data.put("comment", "success => step : 택배 발송 처리 -> 배송 시작 안내 알림 확인필요");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '배송안내' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "154887";
@@ -938,13 +939,13 @@ public class OrderPayDelivery {
 			}
 			data.put("status_id", new Integer(1));
 			data.put("comment", "success => step : 방문수령 처리 성공");
-			JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+			JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 발주/발송관리 메뉴에서 '방문수령'으로 '발송처리'한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		System.out.println("catch로 넘어가나?");		
 		}
 	}
@@ -956,13 +957,13 @@ public class OrderPayDelivery {
 		try{
 			data.put("status_id", new Integer(2));
 			data.put("comment", "success => step : 방문수령 처리 -> 기타발송처리안내 알림 확인필요");
-			JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+			JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '기타발송처리 안내 - 방문수령' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		System.out.println("catch로 넘어가나?");		
 		}
 		testId = "154890";
@@ -1009,13 +1010,13 @@ public class OrderPayDelivery {
 			}
 			data.put("status_id", new Integer(1));
 			data.put("comment", "success => step : 퀵서비스 처리 성공");
-			JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+			JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 발주/발송관리 메뉴에서 '퀵서비스'로 '발송처리'한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		System.out.println("catch로 넘어가나?");		
 		}
 	}
@@ -1028,13 +1029,13 @@ public class OrderPayDelivery {
 			
 			data.put("status_id", new Integer(2));
 			data.put("comment", "success => step : 퀵서비스 처리 -> 기타배송안내 알림 확인 필요");
-			JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+			JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '기타배송안내 - 직배송,퀵서비스' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		System.out.println("catch로 넘어가나?");		
 		}
 		testId="154886";
@@ -1056,7 +1057,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 주문내역에서 문의하기 버튼 클릭하여 판매자 문의하기 팝업 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1109,7 +1110,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 판매자 문의내용 입력 후 네이버me로 알림 체크하여 제출한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1136,7 +1137,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 스토어팜 판매자센터의 고객문의 탭에 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1171,7 +1172,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 해당 문의내역 선택한 후 답변한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1195,13 +1196,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		driver.close();
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '고객문의 답변' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		testId = "154885";
@@ -1230,7 +1231,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 베타 스토어팜 상품 상세페이지 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1286,7 +1287,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 상품 Q&A를 작성한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1312,7 +1313,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 스토어팜 판매자센터의 상품Q&A 탭에 접근한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 		
@@ -1345,7 +1346,7 @@ public class OrderPayDelivery {
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : 해당 Q&A 문의내역 선택한 후 답변한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 				
@@ -1370,13 +1371,13 @@ public class OrderPayDelivery {
 		
 		data.put("status_id", new Integer(1));
 		data.put("comment", driver.findElement(By.partialLinkText(text)).getText());
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 		driver.close();
 		}
 		catch(Exception e){
 		data.put("status_id", new Integer(5));
 		data.put("comment", "Fail => step : '상품Q&A 답변' me 알림을 확인한다");
-		JSONObject r = (JSONObject) client.sendPost("add_result/" + testId, data);
+		JSONObject r = (org.json.simple.JSONObject)  client.sendPost("add_result/" + testId, data);
 					
 		}
 	}
