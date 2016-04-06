@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.awt.Image;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -36,7 +37,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+
 
 
 import com.gurock.testrail.APIClient;
@@ -74,8 +78,8 @@ public class OrderPayDelivery {
 		 //System.setProperty("webdriver.ie.driver", IEDRIVER_FILE_PATH);
 		 System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_FILE_PATH);
 		 //driver = new InternetExplorerDriver();
-		 driver = new ChromeDriver();
-		  js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
+		 //driver = new ChromeDriver();
+		 // js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
 
 		//DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 		//caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
@@ -84,6 +88,23 @@ public class OrderPayDelivery {
 		  client = new APIClient("http://test.navercorp.com/testrail/");
 			 client.setUser("jisu.han@nhn.com");
 			 client.setPassword("zjffjgks5");
+			
+			 String  nodeUrl;
+		        
+	            nodeUrl = "http://10.12.47.184:4444/wd/hub";
+
+	            DesiredCapabilities capability = DesiredCapabilities.chrome();
+	        capability.setBrowserName("chrome");
+	     
+
+
+	            try {
+					driver = new RemoteWebDriver(new URL(nodeUrl),capability);
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            js = (JavascriptExecutor) driver;
 						 
 	}
 	
