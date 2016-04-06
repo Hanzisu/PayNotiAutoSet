@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import java.awt.Image;
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -30,18 +29,14 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
-
 
 
 
@@ -69,21 +64,25 @@ public class OrderPayDelivery {
 	 private static String general_mobile_general_order_num;
 	 private static String general_mobile_easy_order_num;
 	 private static APIClient client;
-	 public static String HubAddress;
+	 public static Utilities util;
+	 public static DesiredCapabilities capability;
 	 private static Map data;
 	 private static String testId = "238236";
 	 private static int delivery_num=456789123;
 	 org.json.simple.JSONObject jsonObject = null; 
-
+	 
+	 //@Parameters({"browser"})
 	 @Before("@tagToOrderandDelivery")
-	 public static void setUp(){
-		IEDRIVER_FILE_PATH = "D:/hanzisu/NaverPayNotification/driver/IEDriverServer.exe";
+	 public static void setUp(String browser) throws Exception{
+		//IEDRIVER_FILE_PATH = "D:/hanzisu/NaverPayNotification/driver/IEDriverServer.exe";
 		CHROMEDRIVER_FILE_PATH = "D:/hanzisu/NaverPayNotification/driver/chromedriver.exe"; 
 		 //System.setProperty("webdriver.ie.driver", IEDRIVER_FILE_PATH);
 		 System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_FILE_PATH);
 		 //driver = new InternetExplorerDriver();
 		 //driver = new ChromeDriver();
-		 // js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
+		 capability = Capabilities.gridSetUp(browser);        
+		    driver = new Utilities(capability);
+		  js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
 
 		//DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 		//caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
@@ -92,22 +91,6 @@ public class OrderPayDelivery {
 		  client = new APIClient("http://test.navercorp.com/testrail/");
 			 client.setUser("jisu.han@nhn.com");
 			 client.setPassword("zjffjgks5");
-			    DesiredCapabilities capability = null;
-			 HubAddress = "http://10.12.45.92:4444/wd/hub";
-
-			    capability = DesiredCapabilities.chrome();
-			    capability.setBrowserName("chrome");
-			    capability.setPlatform(Platform.ANY);
-			    capability.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
-			    
-			    
-			     try {
-					driver = new RemoteWebDriver(new URL(HubAddress),capability);
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	            js = (JavascriptExecutor) driver;
 						 
 	}
 	
