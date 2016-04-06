@@ -39,9 +39,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 
 
-
-
-
 import com.gurock.testrail.APIClient;
 
 import cucumber.api.PendingException;
@@ -64,24 +61,20 @@ public class OrderPayDelivery {
 	 private static String general_mobile_general_order_num;
 	 private static String general_mobile_easy_order_num;
 	 private static APIClient client;
-	 public static Utilities util;
-	 public static DesiredCapabilities capability;
+	 
 	 private static Map data;
 	 private static String testId = "238236";
 	 private static int delivery_num=456789123;
 	 org.json.simple.JSONObject jsonObject = null; 
-	 
-	 //@Parameters({"browser"})
+
 	 @Before("@tagToOrderandDelivery")
-	 public static void setUp(String browser) throws Exception{
-		//IEDRIVER_FILE_PATH = "D:/hanzisu/NaverPayNotification/driver/IEDriverServer.exe";
+	 public static void setUp(){
+		IEDRIVER_FILE_PATH = "D:/hanzisu/NaverPayNotification/driver/IEDriverServer.exe";
 		CHROMEDRIVER_FILE_PATH = "D:/hanzisu/NaverPayNotification/driver/chromedriver.exe"; 
 		 //System.setProperty("webdriver.ie.driver", IEDRIVER_FILE_PATH);
 		 System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_FILE_PATH);
 		 //driver = new InternetExplorerDriver();
-		 //driver = new ChromeDriver();
-		 capability = Capabilities.gridSetUp(browser);        
-		    driver = new Utilities(capability);
+		 driver = new ChromeDriver();
 		  js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
 
 		//DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
