@@ -30,15 +30,19 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+
 
 
 
@@ -65,7 +69,7 @@ public class OrderPayDelivery {
 	 private static String general_mobile_general_order_num;
 	 private static String general_mobile_easy_order_num;
 	 private static APIClient client;
-	 
+	 public static String HubAddress;
 	 private static Map data;
 	 private static String testId = "238236";
 	 private static int delivery_num=456789123;
@@ -88,18 +92,17 @@ public class OrderPayDelivery {
 		  client = new APIClient("http://test.navercorp.com/testrail/");
 			 client.setUser("jisu.han@nhn.com");
 			 client.setPassword("zjffjgks5");
-			
-			 String  nodeUrl;
-		        
-	            nodeUrl = "http://10.12.47.184:4444/wd/hub";
+			    DesiredCapabilities capability = null;
+			 HubAddress = "http://10.12.45.92:4444/wd/hub";
 
-	            DesiredCapabilities capability = DesiredCapabilities.chrome();
-	        capability.setBrowserName("chrome");
-	     
-
-
-	            try {
-					driver = new RemoteWebDriver(new URL(nodeUrl),capability);
+			    capability = DesiredCapabilities.chrome();
+			    capability.setBrowserName("chrome");
+			    capability.setPlatform(Platform.ANY);
+			    capability.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
+			    
+			    
+			     try {
+					driver = new RemoteWebDriver(new URL(HubAddress),capability);
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
