@@ -25,7 +25,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/selenium/selenium-2.48.2/selenium-java-2.48.2.jar"/>
 	<classpathentry kind="lib" path="D:/selenium/selenium-2.48.2/selenium-java-2.48.2-srcs.jar"/>
-	<classpathentry kind="lib" path="D:/selenium/selenium-server-standalone-2.48.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/sikulixapi.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/sikulixsetup-1.1.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Downloads/json-simple-1.1.1.jar"/>

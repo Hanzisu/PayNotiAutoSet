@@ -5,9 +5,12 @@ import static org.junit.Assert.assertTrue;
 import com.gurock.testrail.APIClient;
 import com.gurock.testrail.APIException;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONObject;
 import org.junit.AfterClass;
@@ -17,9 +20,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchWindowException;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
@@ -30,7 +36,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Setting {
-	private static WebDriver driver;    
+	//private static WebDriver driver;    
 	 private static StringBuffer verificationErrors = new StringBuffer();    
 	 private static String IEDRIVER_FILE_PATH;
 	 private static String CHROMEDRIVER_FILE_PATH;
@@ -45,15 +51,19 @@ public class Setting {
 	 private static String testId = "154939";
 	 private static String currentWindowId;
 	 org.json.simple.JSONObject jsonObject = null; 
+	 
+	  private static RemoteWebDriver driver;
+
+     public static String HubAddress = "http://10.12.45.92:4444/wd/hub";
 	@Before("@tagToSetting")
-	public static void setUp(){
+	public static void setUp() throws Exception{
 		IEDRIVER_FILE_PATH = "D:/hanzisu/TestPayAutomaion/driver/IEDriverServer.exe";
 		CHROMEDRIVER_FILE_PATH = "D:/hanzisu/TestPayAutomaion/driver/chromedriver.exe"; 
 		 //System.setProperty("webdriver.ie.driver", IEDRIVER_FILE_PATH);
 		 System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_FILE_PATH);
 		 //driver = new InternetExplorerDriver();
-		 driver = new ChromeDriver();
-		  js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
+		// driver = new ChromeDriver();
+		//  js = (JavascriptExecutor) driver;  // Web Driver를 JavascriptExecutor로 캐스팅
 		  
 
 		//DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
@@ -63,7 +73,18 @@ public class Setting {
 			 client = new APIClient("http://test.navercorp.com/testrail/");
 			 client.setUser("jisu.han@nhn.com");
 			 client.setPassword("zjffjgks5");
-			 
+			 System.setProperty("webdriver.chrome.driver","C:/WebDriver/chromedriver.exe");
+		        DesiredCapabilities capability = DesiredCapabilities.chrome();
+		        capability.setJavascriptEnabled(true);
+		        capability.setCapability("chrome.binary", "/path/to/where/chrome/is/installed/chrome.exe");
+		        capability.setBrowserName("chrome");
+		        capability.setPlatform(Platform.ANY);
+		        
+		        driver = new RemoteWebDriver(new URL(HubAddress), capability);
+		        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+		        js = (JavascriptExecutor) driver;
 			 
 		  
 	}
